@@ -1,0 +1,12 @@
+import com.sample.api.Comment
+
+model {
+	Iterable<Comment> commentList
+	long commentCount
+}
+
+json {
+comment tmpl.comment(commentList ?: [])
+count commentCount
+}
+

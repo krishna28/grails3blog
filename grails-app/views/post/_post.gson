@@ -1,0 +1,7 @@
+import com.sample.api.Post
+
+model {
+	Post post
+}
+
+json g.render(post,[expand:['user']])

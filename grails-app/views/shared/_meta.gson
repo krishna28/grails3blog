@@ -1,0 +1,9 @@
+model {
+	long totalCount
+	Integer max
+}
+
+json{
+	totalCount totalCount
+	max max
+}

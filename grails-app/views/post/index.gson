@@ -1,0 +1,12 @@
+import com.sample.api.Post
+
+model {
+	Iterable<Post> postList
+	long postCount
+}
+
+json {
+posts tmpl.post(postList ?: [])
+count postCount
+}
+

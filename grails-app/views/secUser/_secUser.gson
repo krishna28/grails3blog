@@ -1,0 +1,9 @@
+import com.sample.api.SecUser
+
+model {
+	SecUser secUser
+}
+
+//json g.render(secUser,[deep:true])
+
+json g.render(secUser, [expand:['authorities']])

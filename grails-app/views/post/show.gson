@@ -1,0 +1,7 @@
+import com.sample.api.Post
+
+model {
+	Post post
+}
+
+json tmpl.post(post)

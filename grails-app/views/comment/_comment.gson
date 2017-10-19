@@ -1,0 +1,13 @@
+import com.sample.api.Comment
+
+model {
+	Comment comment
+}
+
+//json g.render(comment,[expand:['cuser']])
+
+json g.render(comment, [excludes:['cuser']]) {
+    cuser {
+        name comment.cuser.username
+    }
+}

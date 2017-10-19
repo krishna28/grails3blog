@@ -1,0 +1,7 @@
+import com.sample.api.Comment
+
+model {
+	Comment comment
+}
+
+json tmpl.comment(comment)
