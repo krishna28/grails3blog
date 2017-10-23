@@ -91,3 +91,18 @@ grails.plugin.springsecurity.interceptUrlMap = [
 		[pattern: '/**',             access: ['IS_AUTHENTICATED_FULLY']],
 		[pattern: '/api/**',         access: ['IS_AUTHENTICATED_FULLY']]
 ]
+
+
+grails.plugin.springsecurity.filterChain.chainMap = [
+		//Stateless chain
+		[
+				pattern: '/api/**',
+				filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'
+		],
+
+		//Traditional chain
+		[
+				pattern: '/**',
+				filters: 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter'
+		]
+]

@@ -14,6 +14,7 @@ class Post {
 	Date lastUpdated
 	Boolean isPosted
 	List<String> tags
+	long likes
 	static embedded = ['tags']
     static hasMany = [comments: Comment]
 	static belongsTo = [user:SecUser]

@@ -6,6 +6,7 @@ import static org.springframework.http.HttpStatus.*
 class CommentController {
 
     CommentService commentService
+    def springSecurityService
 
     static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -14,7 +15,7 @@ class CommentController {
         params.max = Math.min(max ?: 10, 100)
         println "params is ${params}"
         // println "comment count is ${commentService.getCommentCountByPost(params.PostId)}"
-        respond ([commentList: commentService.list(params),commentCount: commentService.getCommentCountByPost(params.PostId)])
+        respond ([commentList: commentService.list(params),totalCount: commentService.getCommentCountByPost(params.PostId), max: params.max])
     }
 
     def show(String id) {
@@ -61,7 +62,13 @@ class CommentController {
         respond comment, [status: OK, view:"show"]
     }
 
-    def delete(Long id) {
+    def delete(String id) {
+       def user = springSecurityService.currentUser
+       def role = new SecRole(authority:'ROLE_ADMIN')
+       if(!user.authorities.contains(role)){
+        response.sendError HttpServletResponse.SC_UNAUTHORIZED
+        return false
+       }
         if (id == null) {
             render status: NOT_FOUND
             return

@@ -2,11 +2,12 @@ import com.sample.api.Comment
 
 model {
 	Iterable<Comment> commentList
-	long commentCount
+	long totalCount
+	Integer max
 }
 
 json {
 comment tmpl.comment(commentList ?: [])
-count commentCount
+meta g.render(template:"/shared/meta", model:[max:max,totalCount:totalCount])
 }
 

@@ -2,10 +2,12 @@ package com.sample.api
 
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
+import javax.servlet.http.HttpServletResponse
 
 class SecUserController {
 
     SecUserService secUserService
+    def springSecurityService
 
     static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -59,7 +61,13 @@ class SecUserController {
         respond secUser, [status: OK, view:"show"]
     }
 
-    def delete(Long id) {
+    def delete(String id) {
+       def user = springSecurityService.currentUser
+       def role = new SecRole(authority:'ROLE_ADMIN')
+       if(!user.authorities.contains(role)){
+        response.sendError HttpServletResponse.SC_UNAUTHORIZED
+        return false
+       }
         if (id == null) {
             render status: NOT_FOUND
             return

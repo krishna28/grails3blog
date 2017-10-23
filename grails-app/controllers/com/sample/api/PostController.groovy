@@ -6,7 +6,7 @@ import static org.springframework.http.HttpStatus.*
 class PostController {
 
     PostService postService
-
+    def springSecurityService
     static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -14,7 +14,7 @@ class PostController {
         params.max = Math.min(max ?: 10, 100)
         println "count is ${postService.count()}"
         println "params is ${params}"
-        respond ([postList: postService.list(params) , postCount: postService.getPostCountByUser(params.SecUserId)])
+        respond ([postList: postService.list(params) , totalCount: postService.getPostCountByUser(params.SecUserId), max:params.max])
     }
 
     def show(String id) {
@@ -43,6 +43,12 @@ class PostController {
     }
 
     def update(Post post) {
+        def user = springSecurityService.currentUser
+        def userpost = user.posts.find{it.id == params.id}
+        if(!userpost){
+          response.sendError HttpServletResponse.SC_UNAUTHORIZED
+          return false
+        }
         if (post == null) {
             render status: NOT_FOUND
             return
@@ -58,7 +64,13 @@ class PostController {
         respond post, [status: OK, view:"show"]
     }
 
-    def delete(Long id) {
+    def delete(String id) {
+       def user = springSecurityService.currentUser
+       def role = new SecRole(authority:'ROLE_ADMIN')
+       if(!user.authorities.contains(role)){
+        response.sendError HttpServletResponse.SC_UNAUTHORIZED
+        return false
+       }
         if (id == null) {
             render status: NOT_FOUND
             return
