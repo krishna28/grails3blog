@@ -24,8 +24,6 @@ class UrlMappings {
         }
 
         "/api/tag"(resources:"Tag")
-
-        "/api/home/create"(controller: 'home', action:'create')  
         "/"(controller: 'application', action:'index')
         "500"(view: '/error')
         "404"(view: '/notFound')

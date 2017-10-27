@@ -2,13 +2,14 @@ package com.sample.api
 
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
-
+import grails.plugin.springsecurity.annotation.Secured
 class PostController {
 
     PostService postService
     def springSecurityService
     static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
