@@ -1,0 +1,14 @@
+import com.sample.api.Comment
+
+model {
+	Comment comment
+}
+
+//json {
+//	desc comment.content
+//	user comment.cuser
+//}
+//json g.render(comment,[deep:false])
+//json g.render(comment,[excludes:['cuser','post']])
+
+json g.render(comment,[excludes:['cuser','post']])

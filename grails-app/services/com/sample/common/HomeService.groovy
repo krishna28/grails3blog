@@ -1,11 +1,29 @@
 package com.sample.common
 
 import grails.gorm.transactions.Transactional
+import grails.gorm.services.Service
+import com.sample.api.Post
 
-@Transactional
-class HomeService {
+import com.mongodb.client.FindIterable
+import static com.mongodb.client.model.Filters.*
 
-    def serviceMethod() {
 
-    }
+interface HomeServiceI {
+
+    Post get(Serializable id)
+
+    List<Post> list(Map args)
+
+    Long count()
+
+}
+@Service(Post)
+abstract class HomeService implements HomeServiceI{
+
+      Post getPostWithComments(Serializable id,Map args){
+          // Post.get(id)
+          println Post.find(eq('_id',id)).first()
+          return Post.find(eq('_id',id)).first()
+      }
+
 }

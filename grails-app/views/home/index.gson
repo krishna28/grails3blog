@@ -1,0 +1,13 @@
+import com.sample.api.Post
+
+model {
+	Iterable<Post> postList
+	long totalCount
+	Integer max
+}
+
+json {
+posts tmpl.post(postList ?: [])
+meta g.render(template:"/shared/meta", model:[max:max,totalCount:totalCount])
+}
+

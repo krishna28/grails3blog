@@ -1,0 +1,9 @@
+import com.sample.api.SecUser
+
+model {
+	SecUser user
+}
+
+json {
+	username user.username
+}

@@ -55,8 +55,8 @@ grails.plugin.springsecurity.logout.afterLogoutUrl = '/'
 grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'
 grails.plugin.springsecurity.successHandler.ajaxSuccessUrl = '/home'
-// grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
-grails.plugin.springsecurity.securityConfigType = "Annotation"
+grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
+// grails.plugin.springsecurity.securityConfigType = "Annotation"
 // grails.plugin.springsecurity.interceptUrlMap = [
 //                [pattern: '/',               access: ['permitAll']],
 //                [pattern: '/home/**',        access: ['ROLE_USER']],
@@ -76,6 +76,9 @@ grails.plugin.springsecurity.securityConfigType = "Annotation"
 
 grails.plugin.springsecurity.interceptUrlMap = [
 		[pattern: '/',               access: ['permitAll']],
+		[pattern: '/cmn/*',          access: ['permitAll']],
+		[pattern: '/all/*',          access: ['permitAll']],	
+		[pattern: '/api/cmn/*',      access: ['permitAll']],		
 		[pattern: '/api/home/**',    access: ['ROLE_USER']],
 		[pattern: '/api/user/**',    access: ['ROLE_USER']],
 		[pattern: '/api/tag/**',     access: ['ROLE_USER']],

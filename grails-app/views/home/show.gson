@@ -1,0 +1,14 @@
+import com.sample.api.Post
+
+import com.sample.api.Comment
+
+model {
+	Post post
+	Iterable<Comment> commentList
+}
+
+//json tmpl.comment(post)
+json {
+post tmpl.post(post ?: [])
+comments g.render(template:"/home/comment",collection: commentList, var:'comment')
+}

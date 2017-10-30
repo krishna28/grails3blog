@@ -15,14 +15,16 @@ class UrlMappings {
                 // apply constraints here
             }
         }
-
+        
         "/api/user"(resources:"SecUser"){
             "/posts"(resources:"Post"){
                 "/comments"(resources:"Comment")
                 "/tags"(resources:"Tag")
             }
         }
-
+        "/api/cmn/posts"(controller:'HomeController', action:'index', method:'GET')
+        "/cmn/posts"(controller:'home', action:'index', method:'GET')
+        "/all"(resources:"Home") 
         "/api/tag"(resources:"Tag")
         "/"(controller: 'application', action:'index')
         "500"(view: '/error')
