@@ -3,8 +3,11 @@ import com.sample.api.Post
 model {
 	Post post
 }
-
-json g.render(post,[expand:['tags']])
+//json g.render(post)
+//json g.render(post,[expand:['tags']])
+//json g.render(post,[expand:['user']])
 //json g.render(post,[embedded:false])
 //json g.render(post,[deep:false])
+
+json g.render(post,[excludes:['user']])
 

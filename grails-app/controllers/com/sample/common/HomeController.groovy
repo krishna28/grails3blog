@@ -19,7 +19,8 @@ class HomeController {
     	println "post instance " + homeService.getPostWithComments(id,params)
     	println "post instance " + homeService.getPostWithComments(id,params).comments
     	Set<Comment> comments = homeService.getPostWithComments(id,params).comments
-    	println "comment sare kkkkkkkkkkkkkkkkkkkkkk" + comments.first()
+       // println "id so " +  comments.sort({a,b-> a.content <=> b.content})
+    	println "comment sare kkkkkkkkkkkkkkkkkkkkkk" + comments.first().cuser
         respond ([post:homeService.getPostWithComments(id,params),commentList:comments,totalCount: homeService.count(), max:params.max])
     }
 }

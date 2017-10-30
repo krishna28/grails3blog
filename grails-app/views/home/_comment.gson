@@ -11,4 +11,8 @@ model {
 //json g.render(comment,[deep:false])
 //json g.render(comment,[excludes:['cuser','post']])
 
-json g.render(comment,[excludes:['cuser','post']])
+json g.render(comment,[excludes:['cuser','post']]){
+	comments{
+	    username comment.cuser.username
+	}
+}

@@ -20,6 +20,12 @@ interface HomeServiceI {
 @Service(Post)
 abstract class HomeService implements HomeServiceI{
 
+	@Override
+	List<Post> list(Map args){
+    	List<Post> result = Post.findAll(args)
+        result
+	}
+
       Post getPostWithComments(Serializable id,Map args){
           // Post.get(id)
           println Post.find(eq('_id',id)).first()
