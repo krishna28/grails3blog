@@ -4,4 +4,5 @@ model {
 	Post post
 }
 
-json g.render(post,[expand:['user']])
+//json g.render(post,[expand:['user']])
+json g.render(post,[expand:false])

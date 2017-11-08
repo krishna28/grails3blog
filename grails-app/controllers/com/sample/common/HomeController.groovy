@@ -23,4 +23,12 @@ class HomeController {
     	println "comment sare kkkkkkkkkkkkkkkkkkkkkk" + comments.first().cuser
         respond ([post:homeService.getPostWithComments(id,params),commentList:comments,totalCount: homeService.count(), max:params.max])
     }
+
+    def posts(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        
+        def result = homeService.getAllPosts(params)
+        println "result is ${result}"
+        respond ([postList: result, totalCount: result.totalCount, max:params.max])
+    }
 }

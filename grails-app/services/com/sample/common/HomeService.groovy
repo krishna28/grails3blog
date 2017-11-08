@@ -26,10 +26,20 @@ abstract class HomeService implements HomeServiceI{
         result
 	}
 
-      Post getPostWithComments(Serializable id,Map args){
+  Post getPostWithComments(Serializable id,Map args){
           // Post.get(id)
           println Post.find(eq('_id',id)).first()
           return Post.find(eq('_id',id)).first()
+  }
+  
+
+  def getAllPosts(Map args){
+     def c = Post.createCriteria()
+     String defaultSort = args.sort?: "dateCreated"
+     String defaultOrder = args.order?: "desc"
+      def results = c.list (max: args.max, offset: args.offset) {          
+          order(defaultSort, defaultOrder)
       }
+  }
 
 }

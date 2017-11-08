@@ -76,12 +76,13 @@ grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
 
 grails.plugin.springsecurity.interceptUrlMap = [
 		[pattern: '/',               access: ['permitAll']],
-		[pattern: '/cmn/*',          access: ['permitAll']],
-		[pattern: '/all/*',          access: ['permitAll']],	
-		[pattern: '/api/cmn/*',      access: ['permitAll']],		
+		[pattern: '/cmn/**',         access: ['permitAll']],
+		[pattern: '/skill/**',       access: ['permitAll']],
+		[pattern: '/all/**',         access: ['permitAll']],			
 		[pattern: '/api/home/**',    access: ['ROLE_USER']],
 		[pattern: '/api/user/**',    access: ['ROLE_USER']],
 		[pattern: '/api/tag/**',     access: ['ROLE_USER']],
+		[pattern: '/api/skill/**',   access: ['ROLE_USER']],
 		[pattern: '/error',          access: ['permitAll']],
 		[pattern: '/index',          access: ['permitAll']],
 		[pattern: '/index.gsp',      access: ['permitAll']],

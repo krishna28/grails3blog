@@ -9,6 +9,7 @@ class Comment {
 	static mapWith = "mongo"
 	String id
 	String content
+	Date dateCreated
 	static belongsTo = [cuser:SecUser,post:Post]
     static constraints = {
     }
