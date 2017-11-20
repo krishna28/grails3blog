@@ -13,20 +13,28 @@ class SecUserController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        println secUserService.list(params)
-        println "secUserCount: ${secUserService.count()}"
-        // respond [secUserService.list(params), model:[name: "krishna",secUserCount: secUserService.count()]]
+        // params.max = Math.min(max ?: 10, 100)
+        // println secUserService.list(params)
+        // println "secUserCount: ${secUserService.count()}"
+        // // respond [secUserService.list(params), model:[name: "krishna",secUserCount: secUserService.count()]]
         
-        def totalCount = secUserService.count()
+        // def totalCount = secUserService.count()
 
-        respond ([secUserList : secUserService.list(params), totalCount: secUserService.count(), max: params.max])
+        // respond ([secUserList : secUserService.list(params), totalCount: secUserService.count(), max: params.max])
+         def user = springSecurityService.currentUser
+         respond ([secUserList : [user], totalCount: 1 as Long, max: params.max])
 
     }
 
     def show(String id) {
         println "show action called with id ${id} and instance ${secUserService.get(id)}"
-        respond secUserService.get(id)
+        def user = springSecurityService.currentUser
+        if(user.id != id){
+             response.sendError HttpServletResponse.SC_UNAUTHORIZED
+        }else{
+             respond user
+        }
+        
     }
 
     def save(SecUser secUser) {

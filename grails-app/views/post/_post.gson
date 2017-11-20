@@ -5,4 +5,10 @@ model {
 }
 
 //json g.render(post,[expand:['user']])
-json g.render(post,[expand:false])
+//json g.render(post,[expand:false])
+
+json g.render(post, [excludes:['user']]) {
+     user {
+        name post.user.username
+    }
+}

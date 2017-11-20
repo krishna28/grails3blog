@@ -15,7 +15,13 @@ class PostController {
         params.max = Math.min(max ?: 10, 100)
         println "count is ${postService.count()}"
         println "params is ${params}"
-        respond ([postList: postService.list(params) , totalCount: postService.getPostCountByUser(params.SecUserId), max:params.max])
+        def user = springSecurityService.currentUser
+        if(user.id == params.SecUserId){
+            respond ([postList: postService.list(params) , totalCount: postService.getPostCountByUser(params.SecUserId), max:params.max])
+        }else{ 
+            response.sendError HttpServletResponse.SC_UNAUTHORIZED         
+        }
+        
     }
 
     def show(String id) {
@@ -34,6 +40,7 @@ class PostController {
         }
 
         try {
+            post.user = springSecurityService.currentUser
             postService.save(post)
         } catch (ValidationException e) {
             respond post.errors, view:'create'
@@ -56,6 +63,9 @@ class PostController {
         }
 
         try {
+            println "pos t is ${post}"
+            println "params ${params}"
+            post.user = springSecurityService.currentUser
             postService.save(post)
         } catch (ValidationException e) {
             respond post.errors, view:'edit'
