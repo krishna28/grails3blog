@@ -3,6 +3,7 @@ package com.sample.common
 import grails.gorm.transactions.Transactional
 import grails.gorm.services.Service
 import com.sample.api.Post
+import com.sample.api.Comment
 
 import com.mongodb.client.FindIterable
 import static com.mongodb.client.model.Filters.*
@@ -40,6 +41,20 @@ abstract class HomeService implements HomeServiceI{
       def results = c.list (max: args.max, offset: args.offset) {          
           order(defaultSort, defaultOrder)
       }
+  }
+
+
+  def getCommentByPost(Serializable id,Map args){
+      Post post = Post.where{
+        id == id
+      }.find()
+      args.max = args.max as Integer
+      if(!args.sort && !args.order){
+        args.sort = "dateCreated"
+        args.order = "desc"
+      }
+      List<Comment> result = Comment.findAllByPost(post,args)
+      [result:result, post:post]
   }
 
 }

@@ -8,6 +8,7 @@ class Post {
 	static mapWith = "mongo"
 	String id
 	String title
+	String slug
 	String subTitle
 	String description
 	Date dateCreated
@@ -19,6 +20,7 @@ class Post {
     static hasMany = [comments: Comment]
 	static belongsTo = [user:SecUser]
     static constraints = {
+    	slug nulllable:false, unique: true
     }
     
 }

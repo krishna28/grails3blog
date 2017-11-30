@@ -15,13 +15,15 @@ class HomeController {
     }
 
     def show(String id) {
-    	int max = Math.min(params.max ?: 10, 100)
-    	println "post instance " + homeService.getPostWithComments(id,params)
-    	println "post instance " + homeService.getPostWithComments(id,params).comments
-    	Set<Comment> comments = homeService.getPostWithComments(id,params).comments
+        Integer maxp = params.max as Integer
+    	int max = Math.min(maxp ?: 10, 100)
+    	// println "post instance " + homeService.getPostWithComments(id,params)
+    	// println "post instance " + homeService.getPostWithComments(id,params).comments
+    	// Set<Comment> comments = homeService.getPostWithComments(id,params).comments
+        def result = homeService.getCommentByPost(id,params)
        // println "id so " +  comments.sort({a,b-> a.content <=> b.content})
-    	println "comment sare kkkkkkkkkkkkkkkkkkkkkk" + comments.first().cuser
-        respond ([post:homeService.getPostWithComments(id,params),commentList:comments,totalCount: homeService.count(), max:params.max])
+    	// println "comment sare kkkkkkkkkkkkkkkkkkkkkk" + comments.first().cuser
+        respond ([post:result.post,commentList:result.result,totalCount: result.totalCount, max:params.max])
     }
 
     def posts(Integer max) {

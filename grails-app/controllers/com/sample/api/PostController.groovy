@@ -7,6 +7,7 @@ class PostController {
 
     PostService postService
     def springSecurityService
+    def slugify
     static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -41,6 +42,7 @@ class PostController {
 
         try {
             post.user = springSecurityService.currentUser
+            post.slug = slugify.makeSlug(post.title)
             postService.save(post)
         } catch (ValidationException e) {
             respond post.errors, view:'create'

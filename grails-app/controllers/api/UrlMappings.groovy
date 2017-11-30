@@ -25,6 +25,7 @@ class UrlMappings {
         "/api/cmn/posts"(controller:'home', action:'index', method:'GET')
         "/cmn/posts"(controller:'home', action:'posts', method:'GET')
         "/cmn/all/posts"(controller:'home', action:'posts', method:'GET')
+        "/$user/$year/$month/$day/$id"(controller: 'home', action: 'show', method:'GET')
         "/all"(resources:"Home") 
         "/api/tag"(resources:"Tag")
         "/api/skill"(resources:"Skill")

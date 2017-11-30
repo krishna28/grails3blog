@@ -56,6 +56,7 @@ grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'
 grails.plugin.springsecurity.successHandler.ajaxSuccessUrl = '/home'
 grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
+grails.plugin.springsecurity.rest.token.storage.jwt.expiration = 7200
 // grails.plugin.springsecurity.securityConfigType = "Annotation"
 // grails.plugin.springsecurity.interceptUrlMap = [
 //                [pattern: '/',               access: ['permitAll']],
