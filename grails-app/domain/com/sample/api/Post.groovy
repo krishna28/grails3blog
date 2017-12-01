@@ -20,7 +20,12 @@ class Post {
     static hasMany = [comments: Comment]
 	static belongsTo = [user:SecUser]
     static constraints = {
-    	slug nulllable:false, unique: true
+    	slug nulllable:false
+    	slug unique: 'user'
+    }
+
+     static mapping = {
+        index description:"text"
     }
     
 }

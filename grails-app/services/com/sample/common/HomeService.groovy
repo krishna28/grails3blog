@@ -57,4 +57,11 @@ abstract class HomeService implements HomeServiceI{
       [result:result, post:post]
   }
 
+  def searchPost(String searchTerm, Map args){
+       List<Post> posts =  Post.search(searchTerm,args)
+       println "posts = ${posts}"
+       long count = Post.search(searchTerm,args).size() as long
+       [posts:posts, count: count]
+  }
+
 }

@@ -33,4 +33,12 @@ class HomeController {
         println "result is ${result}"
         respond ([postList: result, totalCount: result.totalCount, max:params.max])
     }
+
+    List<Post> search(String search_term){
+        println "search krishna = ${search_term}"
+         def result = homeService.searchPost(search_term,params)
+         println "posts controller = ${result.posts}"
+         render(view: "index", model: [postList: result.posts, totalCount: result.count, max:params.max])
+         // respond ([postList: result, totalCount: result.count, max:params.max])
+    }
 }

@@ -31,6 +31,10 @@ class PostController {
         //     id == userid
         // }.find()
 
+        // Post.metaClass.methods.each{
+        //     println it
+        // }
+
         respond postService.getPostByUserId(id,userid)
     }
 
