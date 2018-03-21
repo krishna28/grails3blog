@@ -1,0 +1,4 @@
+com.sample.api.$CommentServiceImplementation
+com.sample.api.$PostServiceImplementation
+com.sample.api.$SecUserServiceImplementation
+com.sample.common.$HomeServiceImplementation

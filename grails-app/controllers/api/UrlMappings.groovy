@@ -24,7 +24,12 @@ class UrlMappings {
         }
         "/api/cmn/posts"(controller:'home', action:'index', method:'GET')
         "/cmn/posts"(controller:'home', action:'posts', method:'GET')
+        "/cmn/posts/mytest"(controller:'home', action:'my', method:'GET')
+        "/cmn/post/search/tag"(controller:'home', action:'searchByTag', method:'GET')
+        "/cmn/post/search/user"(controller:'home', action:'searchByUser', method:'GET')
+        "/cmn/comment/post/$id"(controller:'home', action:'show', method:'GET')
         "/cmn/all/posts"(controller:'home', action:'posts', method:'GET')
+        "/cmn/register"(controller:'home', action:'register', method:'POST')
         "/blog/$user/$year/$month/$day/$id"(controller: 'home', action: 'show', method:'GET')
         "/all"(resources:"Home")
         "/all/search"(controller:"home", action:'search', method: 'GET') 

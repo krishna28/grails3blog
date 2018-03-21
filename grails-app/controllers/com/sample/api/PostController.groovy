@@ -3,6 +3,7 @@ package com.sample.api
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 import grails.plugin.springsecurity.annotation.Secured
+import javax.servlet.http.HttpServletResponse
 class PostController {
 
     PostService postService
@@ -15,10 +16,12 @@ class PostController {
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         println "count is ${postService.count()}"
+        SecUser user = springSecurityService.currentUser
+        String userid = user.id
+        params.SecUserId = userid
         println "params is ${params}"
-        def user = springSecurityService.currentUser
-        if(user.id == params.SecUserId){
-            respond ([postList: postService.list(params) , totalCount: postService.getPostCountByUser(params.SecUserId), max:params.max])
+        if(user){
+            respond ([postList: postService.list(params) , totalCount: postService.getPostCountByUser(userid), max:params.max])
         }else{ 
             response.sendError HttpServletResponse.SC_UNAUTHORIZED         
         }
@@ -26,7 +29,11 @@ class PostController {
     }
 
     def show(String id) {
-        String userid = params.SecUserId
+        println "params is single page view ${params}"
+        // String userid = params.SecUserId
+        SecUser secUser = springSecurityService.currentUser
+        String userid = secUser.id
+        println "post details ${userid}" + postService.getPostByUserId(id,userid)
         // def user = SecUser.where{
         //     id == userid
         // }.find()
@@ -47,6 +54,7 @@ class PostController {
         try {
             post.user = springSecurityService.currentUser
             post.slug = slugify.makeSlug(post.title)
+            post.isPosted = false
             postService.save(post)
         } catch (ValidationException e) {
             respond post.errors, view:'create'
@@ -57,12 +65,13 @@ class PostController {
     }
 
     def update(Post post) {
-        def user = springSecurityService.currentUser
-        def userpost = user.posts.find{it.id == params.id}
-        if(!userpost){
-          response.sendError HttpServletResponse.SC_UNAUTHORIZED
-          return false
-        }
+        println "yes insde the put request"
+        // def user = springSecurityService.currentUser
+        // def userpost = user.posts.find{it.id == params.id}
+        // if(!userpost){
+          // response.sendError HttpServletResponse.SC_UNAUTHORIZED
+          // return false
+        // }
         if (post == null) {
             render status: NOT_FOUND
             return

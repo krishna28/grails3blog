@@ -9,5 +9,9 @@ model {
 //json g.render(post,[embedded:false])
 //json g.render(post,[deep:false])
 
-json g.render(post,[excludes:['user']])
+json g.render(post,[excludes:['user']]){
+     user {
+        name post.user.username
+    }
+}
 

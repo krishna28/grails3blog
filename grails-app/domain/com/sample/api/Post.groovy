@@ -13,7 +13,8 @@ class Post {
 	String description
 	Date dateCreated
 	Date lastUpdated
-	Boolean isPosted
+	Boolean isPosted = false
+	Boolean isCompleted = false
 	List<String> tags
 	long likes
 	static embedded = ['tags']
@@ -26,6 +27,11 @@ class Post {
 
      static mapping = {
         index description:"text"
+    }
+
+
+    static searchable = {
+        only = 'description'
     }
     
 }

@@ -25,6 +25,8 @@ interface PostServiceI {
 abstract class PostService implements PostServiceI{
 	@Override
 	List<Post> list(Map args){
+    args.sort = args.sort?: "dateCreated"
+    args.order = args.order?: "desc"
     String userid = args.SecUserId
     SecUser user = SecUser.where{
     		id == userid

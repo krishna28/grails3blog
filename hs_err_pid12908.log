@@ -1,0 +1,430 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:273), pid=12908, tid=0x0000000000003dbc
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_101-b13) (build 1.8.0_101-b13)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.101-b13 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000000020cf800):  JavaThread "main" [_thread_in_vm, id=15804, stack(0x0000000002400000,0x0000000002500000)]
+
+Stack: [0x0000000002400000,0x0000000002500000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  org.codehaus.groovy.antlr.parser.GroovyLexer.mWS(Z)V+18
+j  org.codehaus.groovy.antlr.parser.GroovyLexer.mNLS(Z)V+175
+J 1993 C1 org.codehaus.groovy.antlr.parser.GroovyLexer.nextToken()Lgroovyjarjarantlr/Token; (2683 bytes) @ 0x0000000002d536bc [0x0000000002d53400+0x2bc]
+J 1981 C1 org.codehaus.groovy.antlr.parser.GroovyLexer$1.nextToken()Lgroovyjarjarantlr/Token; (274 bytes) @ 0x0000000002d7ee14 [0x0000000002d7ed80+0x94]
+J 1088 C1 groovyjarjarantlr.TokenBuffer.fill(I)V (40 bytes) @ 0x0000000002be81ac [0x0000000002be8140+0x6c]
+J 1137 C1 groovyjarjarantlr.LLkParser.LT(I)Lgroovyjarjarantlr/Token; (12 bytes) @ 0x0000000002bfc54c [0x0000000002bfc500+0x4c]
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.closableBlock()V+101
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.appendedBlock(Lgroovyjarjarantlr/collections/AST;)V+19
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.pathElement(Lgroovyjarjarantlr/collections/AST;)V+1170
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.pathExpression(I)V+147
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.postfixExpression(I)V+29
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.unaryExpressionNotPlusMinus(I)V+1084
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.powerExpressionNotPlusMinus(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.multiplicativeExpression(I)V+1629
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.additiveExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.shiftExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.relationalExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.equalityExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.regexExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.andExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.exclusiveOrExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.inclusiveOrExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.logicalAndExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.logicalOrExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.conditionalExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.assignmentExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.expression(I)V+278
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.expressionStatementNoCheck()V+25
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.expressionStatement(I)V+183
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.statement(I)V+2547
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.blockBody(I)V+1765
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.closableBlock()V+49
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.appendedBlock(Lgroovyjarjarantlr/collections/AST;)V+19
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.pathElement(Lgroovyjarjarantlr/collections/AST;)V+1170
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.pathExpression(I)V+147
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.postfixExpression(I)V+29
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.unaryExpressionNotPlusMinus(I)V+1084
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.powerExpressionNotPlusMinus(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.multiplicativeExpression(I)V+1629
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.additiveExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.shiftExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.relationalExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.equalityExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.regexExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.andExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.exclusiveOrExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.inclusiveOrExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.logicalAndExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.logicalOrExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.conditionalExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.assignmentExpression(I)V+17
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.expression(I)V+278
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.expressionStatementNoCheck()V+25
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.expressionStatement(I)V+183
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.statement(I)V+2547
+j  org.codehaus.groovy.antlr.parser.GroovyRecognizer.compilationUnit()V+2809
+j  org.codehaus.groovy.antlr.AntlrParserPlugin.transformCSTIntoAST(Lorg/codehaus/groovy/control/SourceUnit;Ljava/io/Reader;Lorg/codehaus/groovy/antlr/SourceBuffer;)V+83
+j  org.codehaus.groovy.antlr.AntlrParserPlugin.parseCST(Lorg/codehaus/groovy/control/SourceUnit;Ljava/io/Reader;)Lorg/codehaus/groovy/syntax/Reduction;+12
+j  org.codehaus.groovy.control.SourceUnit.parse()V+63
+j  org.codehaus.groovy.control.CompilationUnit$1.call(Lorg/codehaus/groovy/control/SourceUnit;)V+1
+j  org.codehaus.groovy.control.CompilationUnit.applyToSourceUnits(Lorg/codehaus/groovy/control/CompilationUnit$SourceUnitOperation;)V+79
+j  org.codehaus.groovy.control.CompilationUnit.doPhaseOperation(Ljava/lang/Object;)V+30
+j  org.codehaus.groovy.control.CompilationUnit.processPhaseOperations(I)V+32
+j  org.codehaus.groovy.control.CompilationUnit.compile(I)V+60
+j  groovy.lang.GroovyClassLoader.doParseClass(Lgroovy/lang/GroovyCodeSource;)Ljava/lang/Class;+163
+j  groovy.lang.GroovyClassLoader.parseClass(Lgroovy/lang/GroovyCodeSource;Z)Ljava/lang/Class;+37
+j  groovy.lang.GroovyClassLoader.parseClass(Lgroovy/lang/GroovyCodeSource;)Ljava/lang/Class;+6
+j  groovy.lang.GroovyClassLoader.parseClass(Ljava/io/InputStream;Ljava/lang/String;)Ljava/lang/Class;+19
+j  groovy.lang.GroovyClassLoader.recompile(Ljava/net/URL;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Class;+96
+J 1197 C1 groovy.lang.GroovyClassLoader.loadClass(Ljava/lang/String;ZZZ)Ljava/lang/Class; (360 bytes) @ 0x0000000002c0fee4 [0x0000000002c0f6a0+0x844]
+j  groovy.lang.GroovyClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+5
+j  groovy.lang.GroovyClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+j  grails.plugin.springsecurity.SpringSecurityUtils.mergeConfig(Lgroovy/util/ConfigObject;Ljava/lang/String;)V+26
+j  grails.plugin.springsecurity.SpringSecurityUtils.reloadSecurityConfig()V+6
+j  grails.plugin.springsecurity.SpringSecurityUtils.getSecurityConfig()Lgroovy/util/ConfigObject;+27
+v  ~StubRoutines::call_stub
+J 2527  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (0 bytes) @ 0x0000000002e709ff [0x0000000002e70980+0x7f]
+J 2048 C1 sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (104 bytes) @ 0x0000000002d91294 [0x0000000002d90f20+0x374]
+J 662 C1 sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (10 bytes) @ 0x0000000002b37ea4 [0x0000000002b37e60+0x44]
+J 661 C1 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (62 bytes) @ 0x0000000002b37ad4 [0x0000000002b379e0+0xf4]
+J 1913 C1 org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (2214 bytes) @ 0x0000000002d20c24 [0x0000000002d1f4a0+0x1784]
+J 3820 C1 org.codehaus.groovy.reflection.CachedMethod.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (70 bytes) @ 0x0000000003121374 [0x0000000003121340+0x34]
+J 2029 C1 groovy.lang.MetaMethod.doMethodInvoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (22 bytes) @ 0x0000000002d84194 [0x0000000002d84120+0x74]
+J 3797 C1 groovy.lang.MetaClassImpl.getProperty(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/String;ZZ)Ljava/lang/Object; (457 bytes) @ 0x00000000031112cc [0x0000000003110320+0xfac]
+J 3821 C1 groovy.lang.MetaClassImpl.getProperty(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object; (13 bytes) @ 0x0000000003121afc [0x0000000003121aa0+0x5c]
+j  org.codehaus.groovy.runtime.callsite.ClassMetaClassGetPropertySite.getProperty(Ljava/lang/Object;)Ljava/lang/Object;+12
+J 2391 C1 org.codehaus.groovy.runtime.callsite.AbstractCallSite.callGetProperty(Ljava/lang/Object;)Ljava/lang/Object; (12 bytes) @ 0x0000000002e32864 [0x0000000002e32800+0x64]
+j  grails.plugin.springsecurity.SpringSecurityCoreGrailsPlugin$_doWithSpring_closure12.doCall()Ljava/lang/Object;+61
+v  ~StubRoutines::call_stub
+J 2527  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (0 bytes) @ 0x0000000002e709ff [0x0000000002e70980+0x7f]
+J 2048 C1 sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (104 bytes) @ 0x0000000002d91294 [0x0000000002d90f20+0x374]
+J 662 C1 sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (10 bytes) @ 0x0000000002b37ea4 [0x0000000002b37e60+0x44]
+J 661 C1 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (62 bytes) @ 0x0000000002b37ad4 [0x0000000002b379e0+0xf4]
+J 1913 C1 org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (2214 bytes) @ 0x0000000002d20c24 [0x0000000002d1f4a0+0x1784]
+J 3820 C1 org.codehaus.groovy.reflection.CachedMethod.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (70 bytes) @ 0x0000000003121374 [0x0000000003121340+0x34]
+J 2029 C1 groovy.lang.MetaMethod.doMethodInvoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (22 bytes) @ 0x0000000002d84194 [0x0000000002d84120+0x74]
+J 3809 C1 org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;ZZ)Ljava/lang/Object; (892 bytes) @ 0x0000000003118f04 [0x0000000003117d40+0x11c4]
+J 1923 C1 groovy.lang.MetaClassImpl.invokeMethod(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object; (14 bytes) @ 0x0000000002d2ea44 [0x0000000002d2e9e0+0x64]
+j  groovy.lang.Closure.call([Ljava/lang/Object;)Ljava/lang/Object;+8
+j  groovy.lang.Closure.call()Ljava/lang/Object;+6
+j  grails.spring.BeanBuilder.invokeBeanDefiningClosure(Lgroovy/lang/Closure;)Lgrails/spring/BeanBuilder;+6
+j  grails.spring.BeanBuilder.beans(Lgroovy/lang/Closure;)Lgrails/spring/BeanBuilder;+2
+j  grails.spring.BeanBuilder.invokeMethod(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;+89
+j  org.grails.plugins.DefaultGrailsPlugin.doWithRuntimeConfiguration(Lorg/grails/spring/RuntimeSpringConfiguration;)V+162
+j  org.grails.plugins.AbstractGrailsPluginManager.doRuntimeConfiguration(Lorg/grails/spring/RuntimeSpringConfiguration;)V+263
+j  grails.boot.config.GrailsApplicationPostProcessor.postProcessBeanDefinitionRegistry(Lorg/springframework/beans/factory/support/BeanDefinitionRegistry;)V+62
+j  org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;Ljava/util/List;)V+455
+j  org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;)V+5
+j  org.springframework.context.support.AbstractApplicationContext.refresh()V+28
+j  org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh()V+1
+j  org.springframework.boot.SpringApplication.refresh(Lorg/springframework/context/ApplicationContext;)V+11
+j  org.springframework.boot.SpringApplication.refreshContext(Lorg/springframework/context/ConfigurableApplicationContext;)V+2
+j  org.springframework.boot.SpringApplication.run([Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;+91
+j  grails.boot.GrailsApp.run([Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;+2
+j  grails.boot.GrailsApp.run([Ljava/lang/Object;[Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;+43
+j  grails.boot.GrailsApp.run(Ljava/lang/Object;[Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;+9
+j  grails.boot.GrailsApp$run.call(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+18
+j  org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(Lorg/codehaus/groovy/runtime/callsite/CallSite;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+8
+j  org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+3
+j  org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+38
+j  api.Application.main([Ljava/lang/String;)V+57
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000015dd9800 JavaThread "FileSystemWatcher: files=#27 cl=sun.misc.Launcher$AppClassLoader@18b4aac2" daemon [_thread_blocked, id=14628, stack(0x0000000016880000,0x0000000016980000)]
+  0x0000000015b85000 JavaThread "Service Thread" daemon [_thread_blocked, id=10968, stack(0x0000000016160000,0x0000000016260000)]
+  0x0000000015b43800 JavaThread "C1 CompilerThread2" daemon [_thread_in_native, id=10144, stack(0x0000000016550000,0x0000000016650000)]
+  0x0000000015b40000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=11244, stack(0x00000000163a0000,0x00000000164a0000)]
+  0x0000000015b3c000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=11268, stack(0x0000000016270000,0x0000000016370000)]
+  0x0000000014393000 JavaThread "Attach Listener" daemon [_thread_blocked, id=13112, stack(0x0000000014fe0000,0x00000000150e0000)]
+  0x0000000014392000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=13052, stack(0x00000000153c0000,0x00000000154c0000)]
+  0x0000000014371800 JavaThread "Finalizer" daemon [_thread_blocked, id=10148, stack(0x0000000015260000,0x0000000015360000)]
+  0x0000000014328000 JavaThread "Reference Handler" daemon [_thread_blocked, id=11236, stack(0x0000000015140000,0x0000000015240000)]
+=>0x00000000020cf800 JavaThread "main" [_thread_in_vm, id=15804, stack(0x0000000002400000,0x0000000002500000)]
+
+Other Threads:
+  0x000000001431f800 VMThread [stack: 0x0000000014e60000,0x0000000014f60000] [id=8804]
+  0x0000000015b8a800 WatcherThread [stack: 0x0000000016750000,0x0000000016850000] [id=2152]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000000020f8920] MethodData_lock - owner thread: 0x00000000020cf800
+
+Heap:
+ PSYoungGen      total 225792K, used 114928K [0x00000000f0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 205824K, 46% used [0x00000000f0000000,0x00000000f5cc1800,0x00000000fc900000)
+  from space 19968K, 99% used [0x00000000fec80000,0x00000000ffffab20,0x0000000100000000)
+  to   space 28160K, 0% used [0x00000000fc900000,0x00000000fc900000,0x00000000fe480000)
+ ParOldGen       total 524288K, used 25122K [0x00000000d0000000, 0x00000000f0000000, 0x00000000f0000000)
+  object space 524288K, 4% used [0x00000000d0000000,0x00000000d1888be0,0x00000000f0000000)
+ Metaspace       used 34300K, capacity 35044K, committed 35328K, reserved 1081344K
+  class space    used 4042K, capacity 4227K, committed 4352K, reserved 1048576K
+
+Card table byte_map: [0x0000000011b90000,0x0000000011d20000] byte_map_base: 0x0000000011510000
+
+Marking Bits: (ParMarkBitMap*) 0x000000006fe1a6d0
+ Begin Bits: [0x00000000121e0000, 0x0000000012de0000)
+ End Bits:   [0x0000000012de0000, 0x00000000139e0000)
+
+Polling page: 0x00000000020b0000
+
+CodeCache: size=245760Kb used=9692Kb max_used=9692Kb free=236067Kb
+ bounds [0x00000000027d0000, 0x0000000003150000, 0x00000000117d0000]
+ total_blobs=4479 nmethods=3832 adapters=559
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 16.097 Thread 0x0000000015b43800 nmethod 3868 0x0000000003143ad0 code [0x0000000003143c20, 0x0000000003143d50]
+Event: 16.097 Thread 0x0000000015b43800 3866       1       groovyjarjarantlr.BaseAST::setNextSibling (9 bytes)
+Event: 16.097 Thread 0x0000000015b43800 nmethod 3866 0x0000000003143dd0 code [0x0000000003143f20, 0x0000000003144070]
+Event: 16.098 Thread 0x0000000015b43800 3869       1       org.codehaus.groovy.antlr.parser.GroovyRecognizer::primaryExpression (922 bytes)
+Event: 16.100 Thread 0x0000000015b43800 nmethod 3869 0x0000000003144110 code [0x0000000003144560, 0x00000000031458e8]
+Event: 16.100 Thread 0x0000000015b43800 3872       1       groovyjarjarantlr.ANTLRException::<init> (6 bytes)
+Event: 16.100 Thread 0x0000000015b43800 nmethod 3872 0x0000000003147950 code [0x0000000003147aa0, 0x0000000003147bc8]
+Event: 16.100 Thread 0x0000000015b43800 3873       1       groovyjarjarantlr.RecognitionException::<init> (22 bytes)
+Event: 16.100 Thread 0x0000000015b43800 nmethod 3873 0x0000000003147c50 code [0x0000000003147da0, 0x0000000003147f28]
+Event: 16.100 Thread 0x0000000015b43800 3870       1       org.codehaus.groovy.antlr.parser.GroovyRecognizer::multiplicativeExpression (1878 bytes)
+
+GC Heap History (10 events):
+Event: 10.122 GC heap before
+{Heap before GC invocations=7 (full 1):
+ PSYoungGen      total 229376K, used 196608K [0x00000000f0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 196608K, 100% used [0x00000000f0000000,0x00000000fc000000,0x00000000fc000000)
+  from space 32768K, 0% used [0x00000000fc000000,0x00000000fc000000,0x00000000fe000000)
+  to   space 19456K, 0% used [0x00000000fed00000,0x00000000fed00000,0x0000000100000000)
+ ParOldGen       total 524288K, used 14281K [0x00000000d0000000, 0x00000000f0000000, 0x00000000f0000000)
+  object space 524288K, 2% used [0x00000000d0000000,0x00000000d0df2550,0x00000000f0000000)
+ Metaspace       used 21657K, capacity 22122K, committed 22400K, reserved 1069056K
+  class space    used 2568K, capacity 2687K, committed 2688K, reserved 1048576K
+Event: 10.129 GC heap after
+Heap after GC invocations=7 (full 1):
+ PSYoungGen      total 240640K, used 3065K [0x00000000f0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 221184K, 0% used [0x00000000f0000000,0x00000000f0000000,0x00000000fd800000)
+  from space 19456K, 15% used [0x00000000fed00000,0x00000000feffe668,0x0000000100000000)
+  to   space 20480K, 0% used [0x00000000fd800000,0x00000000fd800000,0x00000000fec00000)
+ ParOldGen       total 524288K, used 14281K [0x00000000d0000000, 0x00000000f0000000, 0x00000000f0000000)
+  object space 524288K, 2% used [0x00000000d0000000,0x00000000d0df2550,0x00000000f0000000)
+ Metaspace       used 21657K, capacity 22122K, committed 22400K, reserved 1069056K
+  class space    used 2568K, capacity 2687K, committed 2688K, reserved 1048576K
+}
+Event: 11.372 GC heap before
+{Heap before GC invocations=8 (full 1):
+ PSYoungGen      total 240640K, used 224249K [0x00000000f0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 221184K, 100% used [0x00000000f0000000,0x00000000fd800000,0x00000000fd800000)
+  from space 19456K, 15% used [0x00000000fed00000,0x00000000feffe668,0x0000000100000000)
+  to   space 20480K, 0% used [0x00000000fd800000,0x00000000fd800000,0x00000000fec00000)
+ ParOldGen       total 524288K, used 14281K [0x00000000d0000000, 0x00000000f0000000, 0x00000000f0000000)
+  object space 524288K, 2% used [0x00000000d0000000,0x00000000d0df2550,0x00000000f0000000)
+ Metaspace       used 26245K, capacity 26832K, committed 27136K, reserved 1073152K
+  class space    used 3160K, capacity 3287K, committed 3328K, reserved 1048576K
+Event: 11.389 GC heap after
+Heap after GC invocations=8 (full 1):
+ PSYoungGen      total 241664K, used 6090K [0x00000000f0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 221184K, 0% used [0x00000000f0000000,0x00000000f0000000,0x00000000fd800000)
+  from space 20480K, 29% used [0x00000000fd800000,0x00000000fddf2b10,0x00000000fec00000)
+  to   space 19968K, 0% used [0x00000000fec80000,0x00000000fec80000,0x0000000100000000)
+ ParOldGen       total 524288K, used 14353K [0x00000000d0000000, 0x00000000f0000000, 0x00000000f0000000)
+  object space 524288K, 2% used [0x00000000d0000000,0x00000000d0e04560,0x00000000f0000000)
+ Metaspace       used 26245K, capacity 26832K, committed 27136K, reserved 1073152K
+  class space    used 3160K, capacity 3287K, committed 3328K, reserved 1048576K
+}
+Event: 12.340 GC heap before
+{Heap before GC invocations=9 (full 1):
+ PSYoungGen      total 241664K, used 227274K [0x00000000f0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 221184K, 100% used [0x00000000f0000000,0x00000000fd800000,0x00000000fd800000)
+  from space 20480K, 29% used [0x00000000fd800000,0x00000000fddf2b10,0x00000000fec00000)
+  to   space 19968K, 0% used [0x00000000fec80000,0x00000000fec80000,0x0000000100000000)
+ ParOldGen       total 524288K, used 14353K [0x00000000d0000000, 0x00000000f0000000, 0x00000000f0000000)
+  object space 524288K, 2% used [0x00000000d0000000,0x00000000d0e04560,0x00000000f0000000)
+ Metaspace       used 29662K, capacity 30298K, committed 30464K, reserved 1077248K
+  class space    used 3398K, capacity 3519K, committed 3584K, reserved 1048576K
+Event: 12.369 GC heap after
+Heap after GC invocations=9 (full 1):
+ PSYoungGen      total 242688K, used 11614K [0x00000000f0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 222720K, 0% used [0x00000000f0000000,0x00000000f0000000,0x00000000fd980000)
+  from space 19968K, 58% used [0x00000000fec80000,0x00000000ff7d79b0,0x0000000100000000)
+  to   space 19456K, 0% used [0x00000000fd980000,0x00000000fd980000,0x00000000fec80000)
+ ParOldGen       total 524288K, used 14361K [0x00000000d0000000, 0x00000000f0000000, 0x00000000f0000000)
+  object space 524288K, 2% used [0x00000000d0000000,0x00000000d0e06560,0x00000000f0000000)
+ Metaspace       used 29662K, capacity 30298K, committed 30464K, reserved 1077248K
+  class space    used 3398K, capacity 3519K, committed 3584K, reserved 1048576K
+}
+Event: 13.833 GC heap before
+{Heap before GC invocations=10 (full 1):
+ PSYoungGen      total 242688K, used 224693K [0x00000000f0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 222720K, 95% used [0x00000000f0000000,0x00000000fd015d20,0x00000000fd980000)
+  from space 19968K, 58% used [0x00000000fec80000,0x00000000ff7d79b0,0x0000000100000000)
+  to   space 19456K, 0% used [0x00000000fd980000,0x00000000fd980000,0x00000000fec80000)
+ ParOldGen       total 524288K, used 14361K [0x00000000d0000000, 0x00000000f0000000, 0x00000000f0000000)
+  object space 524288K, 2% used [0x00000000d0000000,0x00000000d0e06560,0x00000000f0000000)
+ Metaspace       used 31809K, capacity 32416K, committed 32512K, reserved 1077248K
+  class space    used 3664K, capacity 3793K, committed 3840K, reserved 1048576K
+Event: 13.864 GC heap after
+Heap after GC invocations=10 (full 1):
+ PSYoungGen      total 242176K, used 19434K [0x00000000f0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 222720K, 0% used [0x00000000f0000000,0x00000000f0000000,0x00000000fd980000)
+  from space 19456K, 99% used [0x00000000fd980000,0x00000000fec7a918,0x00000000fec80000)
+  to   space 19968K, 0% used [0x00000000fec80000,0x00000000fec80000,0x0000000100000000)
+ ParOldGen       total 524288K, used 16755K [0x00000000d0000000, 0x00000000f0000000, 0x00000000f0000000)
+  object space 524288K, 3% used [0x00000000d0000000,0x00000000d105cda8,0x00000000f0000000)
+ Metaspace       used 31809K, capacity 32416K, committed 32512K, reserved 1077248K
+  class space    used 3664K, capacity 3793K, committed 3840K, reserved 1048576K
+}
+Event: 14.845 GC heap before
+{Heap before GC invocations=11 (full 1):
+ PSYoungGen      total 242176K, used 242154K [0x00000000f0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 222720K, 100% used [0x00000000f0000000,0x00000000fd980000,0x00000000fd980000)
+  from space 19456K, 99% used [0x00000000fd980000,0x00000000fec7a918,0x00000000fec80000)
+  to   space 19968K, 0% used [0x00000000fec80000,0x00000000fec80000,0x0000000100000000)
+ ParOldGen       total 524288K, used 16755K [0x00000000d0000000, 0x00000000f0000000, 0x00000000f0000000)
+  object space 524288K, 3% used [0x00000000d0000000,0x00000000d105cda8,0x00000000f0000000)
+ Metaspace       used 33491K, capacity 34230K, committed 34304K, reserved 1079296K
+  class space    used 3891K, capacity 4059K, committed 4096K, reserved 1048576K
+Event: 15.393 GC heap after
+Heap after GC invocations=11 (full 1):
+ PSYoungGen      total 225792K, used 19946K [0x00000000f0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 205824K, 0% used [0x00000000f0000000,0x00000000f0000000,0x00000000fc900000)
+  from space 19968K, 99% used [0x00000000fec80000,0x00000000ffffab20,0x0000000100000000)
+  to   space 28160K, 0% used [0x00000000fc900000,0x00000000fc900000,0x00000000fe480000)
+ ParOldGen       total 524288K, used 25122K [0x00000000d0000000, 0x00000000f0000000, 0x00000000f0000000)
+  object space 524288K, 4% used [0x00000000d0000000,0x00000000d1888be0,0x00000000f0000000)
+ Metaspace       used 33491K, capacity 34230K, committed 34304K, reserved 1079296K
+  class space    used 3891K, capacity 4059K, committed 4096K, reserved 1048576K
+}
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 16.034 Thread 0x00000000020cf800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000f5966e80) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u101\7261\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 16.034 Thread 0x00000000020cf800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000f596b0e0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u101\7261\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 16.048 Thread 0x00000000020cf800 Exception <a 'java/lang/ClassNotFoundException': org/grails/config/NavigableMap$NullSafeNavigatorBeanInfo> (0x00000000f5a64110) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u101\7261\hotspot\src\share\vm\classfile\systemDictionary.cpp, lin
+Event: 16.049 Thread 0x00000000020cf800 Exception <a 'java/lang/ClassNotFoundException': org/grails/config/NavigableMap$NullSafeNavigatorCustomizer> (0x00000000f5a8c668) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u101\7261\hotspot\src\share\vm\classfile\systemDictionary.cpp, l›À"π°0@
+Event: 16.049 Thread 0x00000000020cf800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000f5a91ec8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u101\7261\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 16.049 Thread 0x00000000020cf800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000f5a96a80) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u101\7261\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 16.049 Thread 0x00000000020cf800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000f5a99b70) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u101\7261\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 16.050 Thread 0x00000000020cf800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000f5a9b898) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u101\7261\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 16.050 Thread 0x00000000020cf800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000f5a9d8e0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u101\7261\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 16.050 Thread 0x00000000020cf800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000f5a9ff68) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u101\7261\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+
+Events (10 events):
+Event: 16.049 loading class org/grails/config/NavigableMap$NullSafeNavigatorCustomizer
+Event: 16.049 loading class org/grails/config/NavigableMap$NullSafeNavigatorCustomizer done
+Event: 16.049 loading class org/grails/config/NavigableMap$NullSafeNavigatorCustomizer
+Event: 16.049 loading class org/grails/config/NavigableMap$NullSafeNavigatorCustomizer done
+Event: 16.050 loading class DefaultSecurityConfig
+Event: 16.050 loading class DefaultSecurityConfig done
+Event: 16.051 loading class groovy/lang/GroovyClassLoader$3
+Event: 16.051 loading class groovy/lang/GroovyClassLoader$3 done
+Event: 16.085 loading class groovyjarjarantlr/MismatchedCharException
+Event: 16.085 loading class groovyjarjarantlr/MismatchedCharException done
+
+
+Dynamic libraries:
+0x000000013f0f0000 - 0x000000013f127000 	C:\Program Files\Java\jdk1.8.0_101\bin\java.exe
+0x0000000077930000 - 0x0000000077ada000 	C:\Windows\SYSTEM32\ntdll.dll
+0x0000000077710000 - 0x000000007782f000 	C:\Windows\system32\kernel32.dll
+0x000007fefd7a0000 - 0x000007fefd80a000 	C:\Windows\system32\KERNELBASE.dll
+0x0000000075310000 - 0x000000007539e000 	C:\Windows\System32\SYSFER.DLL
+0x000007fefdf10000 - 0x000007fefdfeb000 	C:\Windows\system32\ADVAPI32.dll
+0x000007feff950000 - 0x000007feff9ef000 	C:\Windows\system32\msvcrt.dll
+0x000007feff930000 - 0x000007feff94f000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007fefe4c0000 - 0x000007fefe5ed000 	C:\Windows\system32\RPCRT4.dll
+0x0000000077830000 - 0x000000007792a000 	C:\Windows\system32\USER32.dll
+0x000007fefd9f0000 - 0x000007fefda57000 	C:\Windows\system32\GDI32.dll
+0x000007feff5f0000 - 0x000007feff5fe000 	C:\Windows\system32\LPK.dll
+0x000007feff520000 - 0x000007feff5eb000 	C:\Windows\system32\USP10.dll
+0x000007fefbe40000 - 0x000007fefc034000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.18837_none_fa3b1e3d17594757\COMCTL32.dll
+0x000007feff4a0000 - 0x000007feff511000 	C:\Windows\system32\SHLWAPI.dll
+0x000007fefda60000 - 0x000007fefda8e000 	C:\Windows\system32\IMM32.DLL
+0x000007fefdc20000 - 0x000007fefdd29000 	C:\Windows\system32\MSCTF.dll
+0x000007fefd560000 - 0x000007fefd585000 	C:\Windows\system32\vmwsci.dll
+0x0000000077b00000 - 0x0000000077b07000 	C:\Windows\system32\PSAPI.DLL
+0x0000000068000000 - 0x000000006805a000 	C:\Windows\system32\QIPCAP64.DLL
+0x000007fefde30000 - 0x000007fefdf0a000 	C:\Windows\system32\OLEAUT32.dll
+0x000007feff9f0000 - 0x000007feffbec000 	C:\Windows\system32\ole32.dll
+0x0000000051a30000 - 0x0000000051b02000 	C:\Program Files\Java\jdk1.8.0_101\jre\bin\msvcr100.dll
+0x000000006f600000 - 0x000000006fe9a000 	C:\Program Files\Java\jdk1.8.0_101\jre\bin\server\jvm.dll
+0x000007fef93a0000 - 0x000007fef93a9000 	C:\Windows\system32\WSOCK32.dll
+0x000007feffbf0000 - 0x000007feffc3d000 	C:\Windows\system32\WS2_32.dll
+0x00000000020a0000 - 0x00000000020a8000 	C:\Windows\system32\NSI.dll
+0x000007fefb570000 - 0x000007fefb5ab000 	C:\Windows\system32\WINMM.dll
+0x000007fefce20000 - 0x000007fefce2c000 	C:\Windows\system32\VERSION.dll
+0x0000000071060000 - 0x000000007106f000 	C:\Program Files\Java\jdk1.8.0_101\jre\bin\verify.dll
+0x0000000070d80000 - 0x0000000070da9000 	C:\Program Files\Java\jdk1.8.0_101\jre\bin\java.dll
+0x00000000712c0000 - 0x00000000712e3000 	C:\Program Files\Java\jdk1.8.0_101\jre\bin\instrument.dll
+0x0000000070a50000 - 0x0000000070a66000 	C:\Program Files\Java\jdk1.8.0_101\jre\bin\zip.dll
+0x000007fefe5f0000 - 0x000007feff37a000 	C:\Windows\system32\SHELL32.dll
+0x000007fefd630000 - 0x000007fefd63f000 	C:\Windows\system32\profapi.dll
+0x0000000070d30000 - 0x0000000070d4a000 	C:\Program Files\Java\jdk1.8.0_101\jre\bin\net.dll
+0x000007fefccd0000 - 0x000007fefcd25000 	C:\Windows\system32\mswsock.dll
+0x000007fefcec0000 - 0x000007fefcec7000 	C:\Windows\System32\wship6.dll
+0x000007fefb1e0000 - 0x000007fefb1f5000 	C:\Windows\system32\NLAapi.dll
+0x000007fef8940000 - 0x000007fef8955000 	C:\Windows\system32\napinsp.dll
+0x000007fef8960000 - 0x000007fef8979000 	C:\Windows\system32\pnrpnsp.dll
+0x000007fefcbc0000 - 0x000007fefcc1b000 	C:\Windows\system32\DNSAPI.dll
+0x000007fef8930000 - 0x000007fef893b000 	C:\Windows\System32\winrnr.dll
+0x000007fefc740000 - 0x000007fefc747000 	C:\Windows\System32\wshtcpip.dll
+0x000007fefb3a0000 - 0x000007fefb3c7000 	C:\Windows\system32\IPHLPAPI.DLL
+0x000007fefb200000 - 0x000007fefb20b000 	C:\Windows\system32\WINNSI.DLL
+0x000007fef90b0000 - 0x000007fef90b8000 	C:\Windows\system32\rasadhlp.dll
+0x000007fef9930000 - 0x000007fef9983000 	C:\Windows\System32\fwpuclnt.dll
+0x00000000752e0000 - 0x00000000752ed000 	C:\Program Files\Java\jdk1.8.0_101\jre\bin\management.dll
+0x0000000060880000 - 0x0000000060891000 	C:\Program Files\Java\jdk1.8.0_101\jre\bin\nio.dll
+
+VM Arguments:
+jvm_args: -Dendpoints.shutdown.enabled=true -Denv=development -Dfull.stacktrace=false -Dgrails.env=development -Dgrails.full.stacktrace=false -Dinfo.app.grailsVersion=3.3.0.RC1 -Dinfo.app.name=apidemo -Dinfo.app.version=0.1 -Djdk.reflect.allowGetCallerClass=true -Drun.active=true -Dserver.port=8081 -Dspring.output.ansi.enabled=always -Dspringloaded=inclusions=grails.plugins..*;synchronize=true;allowSplitPackages=true;cacheDir=C:\g3p\sampleapp\apidemo\build\springloaded -Dverbose=false -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:CICompilerCount=3 -javaagent:C:\Users\z1144\.gradle\caches\modules-2\files-2.1\org.springframework\springloaded\1.2.7.RELEASE\83d209e87380fd30a294cefd458ab6170722e80c\springloaded-1.2.7.RELEASE.jar -Xverify:none -Xms768m -Xmx768m -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant 
+java_command: api.Application
+java_class_path (initial): C:\g3p\sampleapp\apidemo\src\main\resources;C:\g3p\sampleapp\apidemo\grails-app\views;C:\g3p\sampleapp\apidemo\grails-app\i18n;C:\g3p\sampleapp\apidemo\grails-app\conf;C:\g3p\sampleapp\apidemo\build\classes\main;C:\g3p\sampleapp\apidemo\build\resources\main;C:\g3p\sampleapp\apidemo\build\gson-classes\main;C:\Users\z1144\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-logging\1.5.4.RELEASE\6b4364cfee82890ce9a9c2c59066f3a6e525debd\spring-boot-starter-logging-1.5.4.RELEASE.jar;C:\Users\z1144\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-autoconfigure\1.5.4.RELEASE\5591fa7358d950f374532c7d92dccf113ebfa1bb\spring-boot-autoconfigure-1.5.4.RELEASE.jar;C:\Users\z1144\.gradle\caches\modules-2\files-2.1\org.grails\grails-core\3.3.0.RC1\69b6bbb907177d0b70b3282eadd12bbbcb7b6ac\grails-core-3.3.0.RC1.jar;C:\Users\z1144\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-actuator\1.5.4.RELEASE\10f526d22f58a32a8c3af26ccb0a6f16f4649935\spring-boot-starter-actuator-1.5.4.RELEASE.jar;C:\Users\z1144\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-tomcat\1.5.4.RELEASE\d7e26f1d0e594bd1aab7da227649fc12c1958416\spring-boot-starter-tomcat-1.5.4.RELEASE.jar;C:\Users\z1144\.gradle\caches\modules-2\files-2.1\org.grails\grails-plugin-url-mappings\3.3.0.RC1\c7a249cca461f93c6ebb647ad20543e2cc7e3c8f\grails-plugin-url-mappings-3.3.0.RC1.jar;C:\Users\z1144\.gradle\caches\modules-2\files-2.1\org.grails\grails-plugin-rest\3.3.0.RC1\ec976bd9a9b019fefe92c98a6b399dbc728863a8\grails-plugin-rest-3.3.0.RC1.jar;C:\Users\z1144\.gradle\caches\modules-2\files-2.1\org.grails\grails-plugin-codecs\3.3.0.RC1\6d190bf651ff08ec7a19ab8e5b75ecd64fec8660\grails-plugin-codecs-3.3.0.RC1.jar;C:\Users\z1144\.gradle\caches\modules-2\files-2.1\org.grails\grails-plugin-interceptors\3.3.0.RC1\a863d07cb3f474e3793bebb1dfb9d8fddd0d3283\grails-plugin-interceptors-3.3.0.RC1.jar;C:\Users\z1
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101
+PATH=C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Enterprise Vault\EVClient\x64\;C:\Program Files (x86)\Sennheiser\SoftphoneSDK\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Java\jdk1.8.0_101\bin;C:\apache-maven-3.3.9\bin;C:\Program Files\MongoDB\Server\3.4\bin;C:\zookeeper-3.4.9\bin;C:\Users\z1144\AppData\Roaming\npm;C:\apache-groovy-binary-2.4.12\groovy-2.4.12\bin;C:\grails-3.3.0.RC1\bin;C:\Users\z1144\AppData\Local\GitHubDesktop\bin
+USERNAME=z1144
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 62 Stepping 4, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 (6.1.7601.23915)
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 62 stepping 4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, erms, tsc, tscinvbit
+
+Memory: 4k page, physical 8388084k(18536k free), swap 15042224k(3496k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.101-b13) for windows-amd64 JRE (1.8.0_101-b13), built on Jun 22 2016 01:21:29 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Tue Dec 19 16:22:19 2017
+elapsed time: 16 seconds (0d 0h 0m 16s)
+

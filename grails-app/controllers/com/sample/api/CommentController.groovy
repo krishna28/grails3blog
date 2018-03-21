@@ -37,6 +37,8 @@ class CommentController {
         }
 
         try {
+            def user = springSecurityService.currentUser
+            comment.cuser = user
             commentService.save(comment)
         } catch (ValidationException e) {
             respond comment.errors, view:'create'

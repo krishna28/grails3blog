@@ -3,6 +3,7 @@ package com.sample.common
 import grails.gorm.transactions.Transactional
 import grails.gorm.services.Service
 import com.sample.api.Post
+import com.sample.api.SecUser
 import com.sample.api.Comment
 
 import com.mongodb.client.FindIterable
@@ -59,9 +60,36 @@ abstract class HomeService implements HomeServiceI{
 
   def searchPost(String searchTerm, Map args){
        List<Post> posts =  Post.search(searchTerm,args)
-       println "posts = ${posts}"
        long count = Post.search(searchTerm,args).size() as long
        [posts:posts, count: count]
+  }
+
+  def allUserPost(SecUser user,Map args){
+     List<Post> result = Post.findAllByUser(user,args)
+      result
+  }
+
+  def searchPostByTag(String tag,Map args){
+    if(!args.sort && !args.order){
+        args.sort = "dateCreated"
+        args.order = "desc"
+    }
+    List<Post> posts = Post.findAllByTagsIlike(tag,args)
+    long count = posts.size() as long
+    [posts:posts, count: count]
+  }
+
+  def searchPostByUser(String user,Map args){
+    if(!args.sort && !args.order){
+        args.sort = "dateCreated"
+        args.order = "desc"
+    }
+    SecUser secUser = SecUser.where{
+        username == user
+      }.find()    
+    List<Post> posts = Post.findAllByUser(secUser,args)
+    long count = posts.size() as long
+    [posts:posts, count: count]
   }
 
 }

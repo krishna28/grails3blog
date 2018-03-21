@@ -1,0 +1,6 @@
+#Tue, 20 Mar 2018 14:23:21 +0800
+
+info.app.version=0.1
+info.app.name=apidemo
+grails.env=production
+info.app.grailsVersion=3.3.3

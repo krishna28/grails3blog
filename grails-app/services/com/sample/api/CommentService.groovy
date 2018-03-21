@@ -26,6 +26,8 @@ abstract class CommentService implements CommentServiceI{
 	@Override
 	List<Comment> list(Map args){
 		println "yes inside the grails comments tag ${args}"
+        args.sort = args.sort?: "dateCreated"
+        args.order = args.order?: "desc"
         String postId = args.PostId
     	Post post = Post.where{
     		id == postId

@@ -34,7 +34,7 @@ grails.plugin.springsecurity.useSecurityEventListener = true
 
 grails.plugin.springsecurity.rest.token.storage.jwt.useSignedJwt = true
 grails.plugin.springsecurity.rest.token.storage.jwt.secret ='qrD6h8K6S9503A06Y6Rfk21TErImPYqa'
-grails.plugin.springsecurity.rest.token.storage.jwt.expiration = 3600
+grails.plugin.springsecurity.rest.token.storage.jwt.expiration = 600
 grails.plugin.springsecurity.rest.login.active = true
 grails.plugin.springsecurity.rest.login.useJsonCredentials = true // can use json a request parameter
 grails.plugin.springsecurity.rest.login.usernamePropertyName = 'username' // field of username parameter
@@ -56,7 +56,7 @@ grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'
 grails.plugin.springsecurity.successHandler.ajaxSuccessUrl = '/home'
 grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
-grails.plugin.springsecurity.rest.token.storage.jwt.expiration = 7200
+// grails.plugin.springsecurity.rest.token.storage.jwt.expiration = 7200
 // grails.plugin.springsecurity.securityConfigType = "Annotation"
 // grails.plugin.springsecurity.interceptUrlMap = [
 //                [pattern: '/',               access: ['permitAll']],
@@ -78,6 +78,8 @@ grails.plugin.springsecurity.rest.token.storage.jwt.expiration = 7200
 grails.plugin.springsecurity.interceptUrlMap = [
 		[pattern: '/',               access: ['permitAll']],
 		[pattern: '/cmn/**',         access: ['permitAll']],
+		[pattern: '/blog/**',        access: ['permitAll']],
+		[pattern: '/oauth/**',       access: ['permitAll']],
 		[pattern: '/skill/**',       access: ['permitAll']],
 		[pattern: '/all/**',         access: ['permitAll']],			
 		[pattern: '/api/home/**',    access: ['ROLE_USER']],
